@@ -25,6 +25,5 @@
 >>Authorization:{$jwtToken from step 6}
 >>Actual Result: :(
 >>Error : 403 forbidden, this should be fully authenticated and should let the user access this api.
-
 >>Expected Result:
 >>"Hello here is my order"
