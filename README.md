@@ -32,7 +32,6 @@
         }
     ]
 }`
-
 5. Run the application
 >>mvn exec:java -Dexec.mainClass="com.example.DemoApplication
 6. Using postman  try to access the following URL
