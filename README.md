@@ -19,7 +19,6 @@
         }
     ]
 }`
-
 >>`{
     "userName" : "user",
     "password" : "$2a$10$T4f05olrX1IJlB4rI/JRtOqYOJh.9QXz0ZfHcSFLYjFG/Ihj0RePe",
