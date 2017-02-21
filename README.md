@@ -7,7 +7,6 @@
 >>mvn exec:java -Dexec.mainClass="com.example.DemoApplication
 
 2. Using postman  try to access the following URL
-
 >>http://localhost:8080/auth
 >>method post
 >>Content-Type appliction/json
@@ -15,7 +14,6 @@
 >>Response should be a jwt token
 
 3. Try the autheticated url  http://localhost:8080/order
-
 >>Header"
 >>Authorization:{$jwtToken from step 2}
 >>Actual Result: :(
