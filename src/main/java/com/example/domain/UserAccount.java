@@ -48,6 +48,15 @@ public class UserAccount {
         this.password = password;
     }
 
+    public UserAccount(String userName, String password, List<String> roles, String displayName, String email, Boolean enabled) {
+        this.userName = userName;
+        this.password = password;
+        this.roles = roles;
+        this.displayName = displayName;
+        this.email = email;
+        this.enabled = enabled;
+    }
+
     public Boolean getEnabled() {
         return enabled;
     }

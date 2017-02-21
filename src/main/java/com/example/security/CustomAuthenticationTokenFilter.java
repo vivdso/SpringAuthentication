@@ -40,7 +40,6 @@ public class CustomAuthenticationTokenFilter extends OncePerRequestFilter {
             if (jwtTokenUtil.validateToken(authToken,userDetails)) {
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails , null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
-
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }

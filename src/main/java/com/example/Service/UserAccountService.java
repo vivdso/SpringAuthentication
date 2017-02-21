@@ -1,5 +1,6 @@
 package com.example.Service;
 
+import com.example.Data.CustomDbRepository;
 import com.example.Data.UserAccountDbRepository;
 import com.example.domain.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,13 @@ import java.util.HashSet;
 public class UserAccountService {
 
     @Autowired
-    UserAccountDbRepository userAccountDbRepository;
+    CustomDbRepository userAccountDbRepository;
 
     //UserDetails userDetails = new User()
     public User loadByUserName (String userName){
 
-        UserAccount userAccount= userAccountDbRepository.getUserAccountByUserName(userName);
+        //UserAccount userAccount= userAccountDbRepository.getUserAccountByUserName(userName);
+        UserAccount userAccount = userAccountDbRepository.getUserByUserName(userName);
         Collection<GrantedAuthority> gas;
         gas= new HashSet<>();
         for (int i=0; i<userAccount.getRoles().size();i++)        {
