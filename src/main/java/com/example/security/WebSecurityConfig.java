@@ -36,8 +36,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 //.httpBasic().and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/customer").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.GET, "/order").hasAuthority("USER").and()
+                .antMatchers(HttpMethod.POST,"/auth").permitAll()
+                .antMatchers(HttpMethod.GET, "/customer").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/order").hasRole("USER")
+                .anyRequest().authenticated().and()
+
                 .csrf().disable();
 //
 //        http

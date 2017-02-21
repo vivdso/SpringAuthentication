@@ -27,7 +27,7 @@ public class CustomDbRepository {
         userAccounts.add(userAccount);
     }
 
-    public UserAccount getUserByUserName(String userName){
+    public UserAccount getUserAccountByUserName(String userName){
 
         int i=0;
         while (i<userAccounts.size()){
