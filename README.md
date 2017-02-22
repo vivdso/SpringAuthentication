@@ -15,7 +15,7 @@
 
 3. Try the autheticated url  http://localhost:8080/order
 >>Header"
->>Authorization:{$jwtToken from step 6}
+>>Authorization:{$jwtToken from step 2}
 >>Actual Result: :(
 >>Error : 403 forbidden, this should be fully authenticated and should let the user access this api.
 >>Expected Result:
