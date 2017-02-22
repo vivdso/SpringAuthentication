@@ -13,10 +13,21 @@
 >>body:{"username":"user","password":"sample"}
 >>Response should be a jwt token
 
-3. Try the autheticated url  http://localhost:8080/order
+3. Test Url (for user role)  http://localhost:8080/order
 >>Header"
 >>Authorization:{$jwtToken from step 2}
->>Actual Result: :(
->>Error : 403 forbidden, this should be fully authenticated and should let the user access this api.
->>Expected Result:
->>"Hello here is my order"
+>>output "Hello here is my order"
+
+------------------------------------
+
+>>http://localhost:8080/auth
+>>method post
+>>Content-Type application/json
+>>body:{"username":"admin","password":"sample"}
+>>Response should be a jwt token
+
+>> Test(for admin role) URL http://localhost:8080/customer 
+>>Header"
+>>Authorization:{$jwtToken}
+>>output "Hello Test Customer"
+
