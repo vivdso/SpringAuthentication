@@ -10,6 +10,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -18,12 +20,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    private UserAccountService userAccountService;
+    private UserDetailsService userAccountService;
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
         String name = authentication.getName();
-        User userAccount = userAccountService.loadByUserName(name);
+        UserDetails userAccount = userAccountService.loadUserByUsername(name);
         if (userAccount!=null && name.equals(userAccount.getUsername()) && getPassordEncoder().matches(authentication.getCredentials().toString(),userAccount.getPassword()) )
         {
             Authentication auth = new UsernamePasswordAuthenticationToken(name,  authentication.getCredentials().toString(), userAccount.getAuthorities());

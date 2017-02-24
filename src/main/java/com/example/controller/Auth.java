@@ -43,7 +43,7 @@ public class Auth {
                 new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        UserDetails userDetails = userAccountService.loadByUserName(authentication.getName());
+        UserDetails userDetails = userAccountService.loadUserByUsername(authentication.getName());
         String token = jwtTokentUtil.generateToken(userDetails);
         return token;
 
